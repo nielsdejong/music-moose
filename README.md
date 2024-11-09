@@ -1,4 +1,6 @@
-# Music Moose
+# Music Moose 🫎🎶 - Visualize MIDI Input in the Browser
+
+![screenshot](public/screenshot.png)
 
 This project is a MIDI visualizer built using React, VexFlow, and Web MIDI API. It listens for incoming MIDI notes from a connected MIDI device, processes them, and displays them on a musical staff using VexFlow. The notes are shown in real-time as you play them on a MIDI keyboard, with separate staves for treble and bass clefs.
 
@@ -10,15 +12,6 @@ This project is a MIDI visualizer built using React, VexFlow, and Web MIDI API. 
 
 ---
 
-## How it Works:
-
-- The `MidiInputDisplay` component listens for MIDI note events using the Web MIDI API.
-- When a note is pressed, it's added to the list of `heldNotes`.
-- The list of notes is passed to the `renderNotes` function, which uses VexFlow to draw them on the canvas.
-- Notes are categorized into **treble** and **bass** clefs based on their octave, and they are rendered on separate staves.
-- The notes are displayed in real-time, and the user can see their notes visualized as they play.
-
----
 
 ## Prerequisites:
 
@@ -33,7 +26,7 @@ Make sure you have the following installed on your machine:
 
 1. **Clone the Repository**:
 ```
-git clone https://github.com/your-username/midi-visualizer.git cd midi-visualizer
+git clone https://github.com/nielsdejong/music-moose.git cd midi-visualizer
 ```
 
 2. **Install Dependencies**:

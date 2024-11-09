@@ -5,12 +5,11 @@ import './App.css'
 import MidiInputDisplay from './components/MidiInputDisplay'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <div>
-     <h1 style={{fontSize: 100}}>🫎💬</h1>
+     <h1 style={{fontSize: 100}}>🫎🎶</h1>
      <br/><br/><br/><br/>
       </div>
    
