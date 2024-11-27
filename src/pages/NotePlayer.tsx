@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { initWebMidi } from "./webMidi";  // Import WebMidi logic
-import { renderNotes } from "./vexFlow";  // Import VexFlow logic
+import { initWebMidi } from "../components/MidiHandler";  // Import WebMidi logic
+import { renderNotes } from "../components/NoteRenderer";  // Import VexFlow logic
 
-const MidiInputDisplay: React.FC = () => {
+const NotePlayer: React.FC = () => {
   const [heldNotes, setHeldNotes] = useState<string[]>([]);
-  const [isMidiSupported, setIsMidiSupported] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -26,17 +25,11 @@ const MidiInputDisplay: React.FC = () => {
   }, []);
 
   useEffect(() => {
-
-    renderNotes(heldNotes, "output");  // Render notes using VexFlow
-
+    renderNotes(heldNotes, [],"output");  // Render notes using VexFlow
   }, [heldNotes]);
 
   if (error) {
     return <p>Error: {error}</p>;
-  }
-
-  if (!isMidiSupported) {
-    return <p>Your browser does not support Web MIDI.</p>;
   }
 
   const sortedNodes = heldNotes.sort((a, b) => {
@@ -72,4 +65,4 @@ const MidiInputDisplay: React.FC = () => {
   );
 };
 
-export default MidiInputDisplay;
+export default NotePlayer;

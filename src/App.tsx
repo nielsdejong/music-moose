@@ -1,23 +1,44 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import MidiInputDisplay from './components/MidiInputDisplay'
+import NotePlayer from './pages/NotePlayer'
+import NoteReader from './pages/NoteReader'
+import NoteListener from './pages/NoteListener';
 
 function App() {
-
+  const [window, setWindow] = useState('read');
   return (
     <>
-      <div>
-     <h1 style={{fontSize: 100}}>🫎🎶</h1>
-     <br/><br/><br/><br/>
+      <div style={{overflow: 'hidden'}}>
+        {
+          <h1 style={{ fontSize: 100, margin: 0 }}>
+            🫎
+            {window === 'play' ? '🎶' : window === 'read' ? '📃' : '🎧'}
+          </h1>
+        }
+
+        <button style={window === "play" ? { outline: '4px auto -webkit-focus-ring-color' } : undefined}
+          onClick={() => setWindow('play')}>
+          Play
+        </button>
+        &nbsp;
+        <button style={window === "read" ? { outline: '4px auto -webkit-focus-ring-color' } : undefined}
+          onClick={() => setWindow('read')}>
+          Read
+        </button>
+        &nbsp;
+        <button style={window === "listen" ? { outline: '4px auto -webkit-focus-ring-color' } : undefined}
+          onClick={() => setWindow('listen')}>
+          Listen
+        </button>
+        <br /><br /> <br /><br /><br /><br /><br /><br />
       </div>
-   
-        <MidiInputDisplay />
-     
-        <br/><br/><br/><br/><br/><br/><br/><br/>
+
+      {window === 'play' && <NotePlayer />}
+      {window === 'read' && <NoteReader />}
+      {window === 'listen' && <NoteListener />}
+      <br /><br /><br />
     </>
   )
 }
 
-export default App
+export default App;
